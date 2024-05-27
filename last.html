@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Last Class</title>
+	<script type="text/javascript">
+		console.log("hello world")
+		document.write("hello world from document")
+
+		function serach() {
+			var x=document.getElementById("serach")
+			// document.write(x.value)
+			console.log(x.value)
+			if(x.value){
+				x.style.width="600px";
+				x.style.height="100px";
+
+			}
+		}
+		function add(a,b){
+			var sum= a+b;
+			return document.write(sum)
+		}
+
+function testSelect () {
+    var Item = document.test.list.selectedIndex;
+    var result = document.test.list.options[Item].text;
+    //Or you can use the following line which does the same as the above line 
+    result = document.test.list.value;
+    var colr=document.test.color.value;
+     console.log(colr)
+    // alert (color);
+}
+	</script>
+
+</head>
+<body>
+<p> Last class</p>
+<input type="search" name="search" id="serach" value="" onkeypress="serach()">
+
+<button onclick="add(4,5)">Add</button>
+
+<FORM NAME="test" ACTION="#" METHOD="GET">
+Fruit: <SELECT NAME="list" SIZE="1">
+	<OPTION>none</OPTION>
+	<OPTION>Orange</OPTION>
+	<OPTION>Apple</OPTION>
+	<OPTION>Papaya</OPTION>
+	<OPTION>Banana</OPTION>
+</SELECT><br>
+
+<input type="checkbox" name="color" value="red">red<br>
+<input type="checkbox" name="color" value="green" >green
+<input type="checkbox" name="color" value="blue" >blue
+<INPUT TYPE="button" NAME="button" value="Test" onclick="testSelect()" />
+</FORM>
+
+</body>
+</html>

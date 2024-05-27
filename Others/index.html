@@ -1,0 +1,173 @@
+disciple kal, [5/25/2024 10:16 AM]
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            top: 0;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        .logo {
+            font-size: 1.5em;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 0.5em;
+            font-size: 1em;
+            border: none;
+            border-radius: 2px;
+            width: 300px;
+        }
+
+        .search-container button {
+            padding: 0.5em;
+            font-size: 1em;
+            border: none;
+            background-color: #555;
+            color: white;
+            border-radius: 2px;
+            margin-left: 5px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-buttons button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border: none;
+            background-color: #555;
+            color: white;
+            border-radius: 2px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-buttons button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border: none;
+            background-color: #555;
+            color: white;
+            border-radius: 2px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            margin-top: 60px;
+            /* Adjust based on header height */
+            margin-bottom: 40px;
+            /* Adjust based on footer height */
+        }
+
+        nav {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 1em;
+        }
+
+        nav a {
+            display: block;
+            color: #333;
+            padding: 0.5em 0;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            flex: 1;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-buttons">
+            <button onclick="showContent('about')">About</button>
+            <button onclick="showContent('contact')">Contact</button>
+            <button onclick="showContent('skills')">Skills</button>
+        </div>
+        <div class="logo">My  portfolio </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <div class="auth-buttons">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="#" onclick="showContent('home')">Home</a>
+            <a href="#" onclick="showContent('services')">Services</a>
+            <a href="#" onclick="showContent('about')">About</a>
+        </nav>
+        <main id="main-content">
+            <h2>Welcome</h2>
+            <p>Click on the menu items to see different content.</p>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Simple Webpage</p>
+    </footer>
+    <script>
+        function showContent(page) {
+            const content = {
+                home: '<h2>Home</h2><p>Welcome to the homepage.</p>',
+                services: '<h2>Services</h2><p>Here are the services we offer.</p>',
+                about: '<h2>About</h2><p>Learn more about us.</p>',
+                contact: '<h2>Contact</h2><p>Contact us for any queries.</p>',
+                skills: '<h2>Skills</h2><p>Explore our skills and expertise.</p>'
+            };
+            document.getElementById('main-content').innerHTML = content[page];
+        }
+    </script>
+</body>
+
+</html>

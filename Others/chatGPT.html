@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Content Example</title>
+  <style>
+    /* Basic styles for demonstration */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header, nav, main, footer {
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <nav id="nav-bar" class="dog">
+    <div class="nav-bar">
+      <img onclick="clopse()" class="colopser" data-toggle="collapse" data-target="#myNavbar" src='image/colopse.png' alt="Collapse" />
+    </div>
+    <div class="nav-link" id="demo">
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a class="dog" href="#" data-page="home">Home</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a class="dog" href="#" data-page="demos">Demos</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a class="dog" href="#" data-page="blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a href="#" data-page="jobs">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a class="dog" href="#" data-page="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a href="#" data-page="support">Support</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' alt="Icon" /> <a href="#" data-page="application">Application</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div id="main-content">Default Content</div>
+  </main>
+  <footer>footer</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainContent = document.getElementById('main-content');
+      const navLinks = document.querySelectorAll('#nav-bar a');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const page = event.target.getAttribute('data-page');
+          loadPageContent(page);
+        });
+      });
+
+      function loadPageContent(page) {
+        let content;
+        switch(page) {
+          case 'home':
+            content = '<h1>Home</h1><p>Welcome to the home page!</p>';
+            break;
+          case 'demos':
+            content = '<h1>Demos</h1><p>Here are some demos.</p>';
+            break;
+          case 'blog':
+            content = "<div class='article-info'>By kaleab legesse - May 25, 2024</div><div class='article-content'><p>This is the main content of your blog post. You can add paragraphs, images, videos, and other elements here to provide detailed information.</p><p>Here's another paragraph with some lorem ipsum text to fill out the content area. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p></div>";
+            break;
+          case 'jobs':
+            content = '<h1>Jobs</h1><p>Check out our job openings.</p>';
+            break;
+          case 'contact':
+            content = '<h1>Contact</h1><p>Get in touch with us.</p>';
+            break;
+          case 'support':
+            content = '<h1>Support</h1><p>How can we help you?</p>';
+            break;
+          case 'application':
+            content = '<h1>Application</h1><p>Apply for our services.</p>';
+            break;
+          default:
+            content = '<h1>Default Content</h1><p>This is the default content.</p>';
+        }
+        mainContent.innerHTML = content;
+      }
+    });
+  </script>
+</body>
+</html>
